@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace MercadoLibreController.LINK.Entidades
 {
-    public class ArticleERP
+    public class Picture
     {
+        public string source { get; set; }
 
+        public Picture()
+        {
+
+        }
     }
 }
