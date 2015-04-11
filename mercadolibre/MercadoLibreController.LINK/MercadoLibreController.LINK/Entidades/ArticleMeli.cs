@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MercadoLibreController.LINK
+namespace MercadoLibreController.LINK.Entidades
 {
-    public class Class1
+    public class ArticleMeli
     {
     }
 }

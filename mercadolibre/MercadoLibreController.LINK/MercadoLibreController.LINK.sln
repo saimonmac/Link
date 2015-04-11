@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MercadoLibreController.LINK", "MercadoLibreController.LINK\MercadoLibreController.LINK.csproj", "{35F66423-9E08-40F2-8A7E-D17268D97402}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaOauth", "PruebaOauth\PruebaOauth.csproj", "{0088DCD9-064A-44E2-BA03-BC062DE1AECA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{35F66423-9E08-40F2-8A7E-D17268D97402}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35F66423-9E08-40F2-8A7E-D17268D97402}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35F66423-9E08-40F2-8A7E-D17268D97402}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0088DCD9-064A-44E2-BA03-BC062DE1AECA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0088DCD9-064A-44E2-BA03-BC062DE1AECA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0088DCD9-064A-44E2-BA03-BC062DE1AECA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0088DCD9-064A-44E2-BA03-BC062DE1AECA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
