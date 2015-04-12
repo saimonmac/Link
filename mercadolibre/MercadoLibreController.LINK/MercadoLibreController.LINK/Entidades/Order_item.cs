@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace MercadoLibreController.LINK.Entidades
 {
-   public  class order_items
+   public  class Order_item
     {
        public DetailedItem   item { get; set; }
        public string quantity { get; set; }
 
-       public order_items() {
+       public Order_item() {
            
        }
     }

@@ -8,6 +8,6 @@ namespace MercadoLibreController.LINK.Entidades
 {
     public class Answer
     {
-        public List<result> results { get; set; }
+        public List<Result> results { get; set; }
     }
 }

@@ -9,6 +9,6 @@ namespace MercadoLibreController.LINK.Entidades
    public class OrderItem
     {
 
-       public itemResult item { get; set; }
+       public ItemResult item { get; set; }
     }
 }

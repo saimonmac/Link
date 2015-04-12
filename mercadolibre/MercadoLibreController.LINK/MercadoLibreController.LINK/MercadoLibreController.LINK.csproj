@@ -50,14 +50,14 @@
     <Compile Include="Entidades\ArticleERP.cs" />
     <Compile Include="Entidades\ArticleMeli.cs" />
     <Compile Include="Controllers\MercadoLibreController.cs" />
-    <Compile Include="Entidades\buyer.cs" />
+    <Compile Include="Entidades\Buyer.cs" />
     <Compile Include="Entidades\DetailedItem.cs" />
-    <Compile Include="Entidades\itemResult.cs" />
+    <Compile Include="Entidades\DtoPurchase.cs" />
+    <Compile Include="Entidades\ItemResult.cs" />
     <Compile Include="Entidades\OrderItem.cs" />
-    <Compile Include="Entidades\order_items.cs" />
+    <Compile Include="Entidades\Order_item.cs" />
     <Compile Include="Entidades\Picture.cs" />
-    <Compile Include="Entidades\result.cs" />
-    <Compile Include="Entidades\results.cs" />
+    <Compile Include="Entidades\Result.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

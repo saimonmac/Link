@@ -93,7 +93,7 @@ namespace MercadoLibreController.LINK.Controllers
         }
 
         //Realizar cada vez luego de una compra en mercado libre, simula lo que es una push notification
-        public string GetLastPurchase()
+        public DtoPurchase GetLastPurchase()
         {
             var p = new Parameter();
             p.Name = "access_token";
@@ -107,9 +107,9 @@ namespace MercadoLibreController.LINK.Controllers
             //devuelve las ordenes mas recientes de compra, hechas al vendedor
             IRestResponse r = meli.Get("/orders/search/recent", ps);
            Answer answer = JsonConvert.DeserializeObject<Answer>(r.Content.ToString());
-           result result = answer.results[0];
-
-            return null;
+           Result result = answer.results.Last();
+           return new DtoPurchase() { IdArticle = result.order_items[0].item.id, Quantity = Int32.Parse(result.order_items[0].quantity) };
+           //return "{ id : "+'"' +result.order_items[0].item.id+'"'+", idBuyer : "+'"'+ result.buyer.id+'"'+" , usernameBuyer : "+'"'+result.buyer.email+'"'+", first_name : "+'"'+result.buyer.first_name+'"'+", last_name : "+'"'+result.buyer.last_name+'"'+" ,quantity : "+'"'+ result.order_items[0].quantity+'"'+" }";
         }
     }
 }

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace MercadoLibreController.LINK.Entidades
 {
-   public class result
+   public class Result
     {
        public string id { get; set; }
-       public List<order_items> order_items { get; set; }
-       public buyer buyer { get; set; }
-       public result() {
+       public List<Order_item> order_items { get; set; }
+       public Buyer buyer { get; set; }
+       public Result() {
 
-           order_items = new List<order_items>();
+           order_items = new List<Order_item>();
        }
     }
 }
