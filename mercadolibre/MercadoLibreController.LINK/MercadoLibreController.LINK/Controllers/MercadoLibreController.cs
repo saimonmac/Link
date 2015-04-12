@@ -5,11 +5,9 @@ using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.Serialization.Json;
 
 
 namespace MercadoLibreController.LINK.Controllers
@@ -62,35 +60,30 @@ namespace MercadoLibreController.LINK.Controllers
             return redirectUrl;
         }
 
-        public string Authorize()
+        public bool Authorize()
         {
             meli.Authorize(Code, "http://localhost/PruebaOauth/Redirect.aspx");
             //guardar el token y el code en la base de datos
 
             token = meli.AccessToken;
             GetCategoriesMercadoLibre();
-            return Publish("");
-            //return true;
+            Publish("");
+            return true;
         
         }
 
-        public string Publish(string json)
+        public bool Publish(string json)
         {
             var p = new Parameter();
             p.Name = "access_token";
             p.Value = token;
             //aca va un conversor del json a articulomeli
-            ArticleMeli a = new ArticleMeli() { title = "Reloj de galAPI", buying_mode = "buy_it_now", condition = "new", category_id = "MLU1443", currency_id = "UYU", description = "Nada", listing_type_id = "bronze", available_quantity = 10, price = 200, video_id = "", warranty = "No warranty", pictures = new List<Picture>() { new Picture() { source = "http://en.wikipedia.org/wiki/File:Teashades.gif" } } };
-            //a.variations.Add(new Variation() { attribute_combinations = new List<AttributeCombination>() { new AttributeCombination() { id = "11000", value_id = "bca95f6" } }, price = 200, picture_ids = new List<string>() { "http://www.mundodofutebol.com.br/imagens/produto/6484_0181.jpg" },available_quantity=10 });
+            ArticleMeli a = new ArticleMeli() { title = "Lentes 1", buying_mode = "buy_it_now", condition = "new", category_id = "MLU158362", currency_id = "UYU", description = "Nada", listing_type_id = "bronze", available_quantity = 10, price = 100, video_id = "", warranty = "No warranty", pictures = new List<Picture>() { new Picture() { source = "http://en.wikipedia.org/wiki/File:Teashades.gif" } } }; 
             var ps = new List<Parameter>();
             ps.Add(p);
-            var articulo = JsonConvert.SerializeObject(a);
-
-            //return articulo.Replace("\\", "");
-            Console.WriteLine(articulo);
-            Console.ReadLine();
+            string articulo = JsonConvert.SerializeObject(a);
             IRestResponse r = meli.Post("/items",ps,articulo);
-            return "";
+            return false;
         }
     }
 }
