@@ -46,10 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidades\Answer.cs" />
     <Compile Include="Entidades\ArticleERP.cs" />
     <Compile Include="Entidades\ArticleMeli.cs" />
     <Compile Include="Controllers\MercadoLibreController.cs" />
+    <Compile Include="Entidades\buyer.cs" />
+    <Compile Include="Entidades\DetailedItem.cs" />
+    <Compile Include="Entidades\itemResult.cs" />
+    <Compile Include="Entidades\OrderItem.cs" />
+    <Compile Include="Entidades\order_items.cs" />
     <Compile Include="Entidades\Picture.cs" />
+    <Compile Include="Entidades\result.cs" />
+    <Compile Include="Entidades\results.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

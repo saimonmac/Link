@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MercadoLibreController.LINK;
+using MercadoLibreController.LINK.Entidades;
+
 
 namespace PruebaOauth
 {
@@ -12,6 +14,7 @@ namespace PruebaOauth
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             MercadoLibreController.LINK.Controllers.MercadoLibreController m = MercadoLibreController.LINK.Controllers.MercadoLibreController.GetController();
             string url = m.Connect();
             Response.Redirect(url);

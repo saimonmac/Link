@@ -57,11 +57,19 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Comprar.aspx" />
     <Content Include="Redirect.aspx" />
     <Content Include="Test.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comprar.aspx.cs">
+      <DependentUpon>Comprar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Comprar.aspx.designer.cs">
+      <DependentUpon>Comprar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Redirect.aspx.cs">
       <DependentUpon>Redirect.aspx</DependentUpon>
@@ -87,6 +95,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\Downloads\net-sdk-master\SDK\SDK.csproj">
+      <Project>{25fdc25b-0bb1-4d13-bad3-c7caf22b9f70}</Project>
+      <Name>SDK</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MercadoLibreController.LINK\MercadoLibreController.LINK.csproj">
       <Project>{35f66423-9e08-40f2-8a7e-d17268d97402}</Project>
       <Name>MercadoLibreController.LINK</Name>

@@ -68,8 +68,9 @@ namespace MercadoLibreController.LINK.Controllers
             //guardar el token y el code en la base de datos
             refreshtoken = meli.RefreshToken;
             token = meli.AccessToken;
-            GetCategoriesMercadoLibre();
-            Publish("");
+            //GetCategoriesMercadoLibre();
+            //Publish("");
+            GetLastPurchase();
             return true;
         
         }
@@ -87,9 +88,28 @@ namespace MercadoLibreController.LINK.Controllers
                 ps.Add(p);
                 IRestResponse r = meli.Post("/items", ps, new { title = a.title, buying_mode = "buy_it_now", condition = "new", category_id = "MLU1443", currency_id = "UYU", description = a.description, listing_type_id = "bronze", available_quantity = a.available_quantity, price = a.price, video_id = "", warranty = a.warranty});
             }
-            
             //aca va un conversor del json a articulomeli
             return false;
+        }
+
+        //Realizar cada vez luego de una compra en mercado libre, simula lo que es una push notification
+        public string GetLastPurchase()
+        {
+            var p = new Parameter();
+            p.Name = "access_token";
+            p.Value = token;
+            var p2 = new Parameter();
+            p2.Name = "seller";
+            p2.Value = 83995566;
+            var ps = new List<Parameter>();
+            ps.Add(p);
+            ps.Add(p2);
+            //devuelve las ordenes mas recientes de compra, hechas al vendedor
+            IRestResponse r = meli.Get("/orders/search/recent", ps);
+           Answer answer = JsonConvert.DeserializeObject<Answer>(r.Content.ToString());
+           result result = answer.results[0];
+
+            return null;
         }
     }
 }
