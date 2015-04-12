@@ -30,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="net-sdk">
-      <HintPath>..\net-sdk-master\SDK\bin\Debug\net-sdk.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -52,12 +49,17 @@
     <Compile Include="Entidades\ArticleERP.cs" />
     <Compile Include="Entidades\ArticleMeli.cs" />
     <Compile Include="Controllers\MercadoLibreController.cs" />
-    <Compile Include="Entidades\Category.cs" />
     <Compile Include="Entidades\Picture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\Downloads\net-sdk-master\SDK\SDK.csproj">
+      <Project>{25fdc25b-0bb1-4d13-bad3-c7caf22b9f70}</Project>
+      <Name>SDK</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

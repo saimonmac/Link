@@ -18,9 +18,10 @@ namespace MercadoLibreController.LINK.Controllers
         public string Code { get; set; }
         private Meli meli;
         private string token;
+        private string refreshtoken;
         private long app_id;
         private string secret;
-        private List<Category> categories;
+        //private List<Category> categories;
 
 
         public void GetCategoriesMercadoLibre(){
@@ -30,7 +31,7 @@ namespace MercadoLibreController.LINK.Controllers
             var ps = new List<Parameter> ();
             ps.Add (p);
             IRestResponse r = meli.Get("/sites/MLU/categories", ps);
-            categories = JsonConvert.DeserializeObject<List<Category>>(r.Content);
+            //categories = JsonConvert.DeserializeObject<List<Category>>(r.Content);
         }
 
         private MercadoLibreController()
@@ -38,10 +39,11 @@ namespace MercadoLibreController.LINK.Controllers
 
         }
 
-        public void SetCredentials(long id, string secret)
+        public void SetCredentials(long id, string secret, string token)
         {
             this.app_id = id;
             this.secret = secret;
+            this.token = token;
         }
 
         public static MercadoLibreController GetController()
@@ -64,7 +66,7 @@ namespace MercadoLibreController.LINK.Controllers
         {
             meli.Authorize(Code, "http://localhost/PruebaOauth/Redirect.aspx");
             //guardar el token y el code en la base de datos
-
+            refreshtoken = meli.RefreshToken;
             token = meli.AccessToken;
             GetCategoriesMercadoLibre();
             Publish("");
@@ -77,12 +79,16 @@ namespace MercadoLibreController.LINK.Controllers
             var p = new Parameter();
             p.Name = "access_token";
             p.Value = token;
+            List<ArticleERP> articulosERP = JsonConvert.DeserializeObject<List<ArticleERP>>(json);
+            List<ArticleMeli> articulosMeli = new List<ArticleMeli>();
+            foreach (ArticleERP a in articulosERP)
+            {
+                var ps = new List<Parameter>();
+                ps.Add(p);
+                IRestResponse r = meli.Post("/items", ps, new { title = a.title, buying_mode = "buy_it_now", condition = "new", category_id = "MLU1443", currency_id = "UYU", description = a.description, listing_type_id = "bronze", available_quantity = a.available_quantity, price = a.price, video_id = "", warranty = a.warranty});
+            }
+            
             //aca va un conversor del json a articulomeli
-            ArticleMeli a = new ArticleMeli() { title = "Lentes 1", buying_mode = "buy_it_now", condition = "new", category_id = "MLU158362", currency_id = "UYU", description = "Nada", listing_type_id = "bronze", available_quantity = 10, price = 100, video_id = "", warranty = "No warranty", pictures = new List<Picture>() { new Picture() { source = "http://en.wikipedia.org/wiki/File:Teashades.gif" } } }; 
-            var ps = new List<Parameter>();
-            ps.Add(p);
-            string articulo = JsonConvert.SerializeObject(a);
-            IRestResponse r = meli.Post("/items",ps,articulo);
             return false;
         }
     }
