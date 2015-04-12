@@ -18,7 +18,7 @@ namespace PruebaOauth
                 {
                     MercadoLibreController.LINK.Controllers.MercadoLibreController m = MercadoLibreController.LINK.Controllers.MercadoLibreController.GetController();
                     m.Code = Request.QueryString["code"];
-                    m.Authorize();
+                    Label1.Text= m.Authorize();
 
                 }
             }

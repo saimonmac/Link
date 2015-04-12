@@ -13,7 +13,7 @@ namespace MercadoLibreController.LINK.Entidades
         public int price { get; set; }
         public string currency_id { get; set; }
         public int available_quantity { get; set; }
-       
+        //public List<Variation> variations { get; set; }
         public string buying_mode  { get; set; }
         public string listing_type_id  { get; set; }
         public string condition { get; set; }
@@ -25,6 +25,7 @@ namespace MercadoLibreController.LINK.Entidades
         public ArticleMeli()
         {
             pictures = new List<Picture>();
+            //variations = new List<Variation>();
         }
     }
 }
